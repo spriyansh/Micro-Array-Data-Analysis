@@ -1,4 +1,4 @@
-# Data Pre-processing
+# Data pre-processing
 ---
 
 <br>
