@@ -26,5 +26,5 @@
 <br>
 
 * **The data can be fetched from the following sources**
-1. From [Gene Expression Omnibus (GEO) Database](https://www.ncbi.nlm.nih.gov/geo/) use [script](https://raw.githubusercontent.com/spriyansh/Micro-Array-Data-Analysis/master/Data_Preprocessing/get_geo_data.R)
-2. From ```.CEL``` files use this script
+1. From [Gene Expression Omnibus (GEO) Database](https://www.ncbi.nlm.nih.gov/geo/) use [this](https://raw.githubusercontent.com/spriyansh/Micro-Array-Data-Analysis/master/Data_Preprocessing/get_geo_data.R) script.
+2. From ```.CEL``` files use this script.
