@@ -2,14 +2,12 @@
 ---
 
 <br>
-<br>
 
 * **The Data-preprocessing steps involves-**
 1. Getting the Data
 2. Normalization
 2. Removing low expression counts
 
-<br>
 <br>
 
 * **Libraries used**
@@ -18,7 +16,6 @@
 3. [genefilter](https://www.bioconductor.org/packages/release/bioc/html/genefilter.html)
 
 <br>
-<br>
 
 * **Install in the following order**
 1. ```install.packages("BiocManager", dependencies = TRUE)```
@@ -26,7 +23,6 @@
 3. ```BiocManager::install("GEOquery")```
 4. ```install.packages("data.table", dependencies = TRUE)```
 
-<br>
 <br>
 
 * **The data can be fetched from the following sources**
