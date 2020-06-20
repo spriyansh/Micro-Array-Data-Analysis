@@ -1,9 +1,9 @@
-# Data pre-processing
+# Data Pre-processing
 ---
 
 <br>
 
-* **The Data-preprocessing steps involves-**
+* **The data-preprocessing steps involves-**
 1. Getting the Data
 2. Normalization
 2. Removing low expression counts
