@@ -1,4 +1,4 @@
-## Microarray Data Analysis
+# Microarray Data Analysis
 
 ---
 
@@ -11,3 +11,11 @@
 - Gene Set Enrichment Analysis
 - Network Analysis
 - Visualizations
+
+#### 3. Written in
+- R version 3.6.1 (2019-07-05) -- "Action of the Toes"
+- Python 3.7.7
+
+#### 4. Tools Used 
+- Rstudio
+- Jupyter-Notebook
