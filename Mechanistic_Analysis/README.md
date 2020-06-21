@@ -18,3 +18,5 @@
 3. ```install.packages("data.table", dependencies = TRUE)```
 
 <br>
+
+* *The [script](https://raw.githubusercontent.com/spriyansh/Micro-Array-Data-Analysis/master/Mechanistic_Analysis/mechanic_pairs.R) discuss the extraction of mechanically close pairs and their regulation status. The script can also be used as a data-mining tool from biomart.*
