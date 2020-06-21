@@ -22,6 +22,7 @@
 2. ```BiocManager::install("limma")```
 3. ```install.packages("tidyverse", dependencies = TRUE)```
 4. ```install.packages("Hmisc", dependencies = TRUE)```
+5. ```install.packages("data.table", dependencies = TRUE)```
 
 <br>
 
