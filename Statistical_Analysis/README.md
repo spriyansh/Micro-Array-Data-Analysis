@@ -4,8 +4,8 @@
 
 * **Statistical analysis involves following-**
 1. Finding differentially expressed genes. Use [this](https://raw.githubusercontent.com/spriyansh/Micro-Array-Data-Analysis/master/Statistical_Analysis/t_test.R) script for performing [t-test](https://en.wikipedia.org/wiki/Student%27s_t-test)
-2. Finding the regulation status of the differentially expressed gene. Use [this](https://raw.githubusercontent.com/spriyansh/Micro-Array-Data-Analysis/master/Statistical_Analysis/significant_filter.R) for filtering
-3. Finding the correlated genes
+2. Finding the regulation status of the differentially expressed gene. Use [this](https://raw.githubusercontent.com/spriyansh/Micro-Array-Data-Analysis/master/Statistical_Analysis/significant_filter.R) for filtering.
+3. Finding the correlated genes. Use [this](https://raw.githubusercontent.com/spriyansh/Micro-Array-Data-Analysis/master/Statistical_Analysis/correlation_counts.R) for finding Pearson's Correlationa and [this]() script for filtering 
 
 <br>
 
