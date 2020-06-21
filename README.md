@@ -9,7 +9,6 @@
 - [Statistical Analysis](https://github.com/spriyansh/Micro-Array-Data-Analysis/tree/master/Statistical_Analysis)
 - [Mechanistic Analysis](https://github.com/spriyansh/Micro-Array-Data-Analysis/tree/master/Mechanistic_Analysis)
 - Gene Set Enrichment Analysis
-- Network Analysis
 - Visualizations
 
 #### 3. Written in
