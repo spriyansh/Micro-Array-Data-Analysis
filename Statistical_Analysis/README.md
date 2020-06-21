@@ -51,11 +51,43 @@ meta_make <- function(temp_df, ind_set1,set1, ind_set2, set2){
   return(temp_meta)
 }
 ```
-3. *Finding based on statistics of the t-test* - Function accepts DataFrame of the t-test results from ```limma```. The index of the columns are also passed along with the cut-off filter i.e. ```0.03``` for ```adj.p-value``` and ```0.01``` for ```p-value```. The upregulated and downregulated genes are filtered with ```LogFC``` with ```<-0.5``` as down-regulated and ```>0.5``` as up-regulated.
+3. *Filtering based on statistics of the t-test* - Function accepts DataFrame of the t-test results from ```limma```. The index of the columns are also passed along with the cut-off filter i.e. ```0.03``` for ```adj.p-value``` and ```0.01``` for ```p-value```. The upregulated and downregulated genes are filtered with ```LogFC``` with ```<-0.5``` as down-regulated and ```>0.5``` as up-regulated.
 ```
 aftermath <- function(temp_df2, pvalue, p_index, fdr, adj_index){
   temp_df2 <- temp_df2[which(temp_df2[,p_index] < as.numeric(pvalue)),]
   temp_df2 <- temp_df2[which(temp_df2[,adj_index] < as.numeric(fdr)),]
   return(temp_df2)
+}
+```
+4. * Calculation of correlation* - Function calculates the pearson's correlation statistic and returns the filtered data frame based on correlation coefficient. The function works in integration with ```aftermath()```, ```corr_cut()``` and ```flattenCorrMatrix()```. 
+```
+find_p_corr <- function(cor_df, p_cut, p_ind, fdr_cut, fdr_ind, cor_cut, cor_ind){
+  cor_df <- t(cor_df)
+  cor_df  <- rcorr(as.matrix(cor_df, type = "pearson"))
+  cor_df <- as.data.frame(flattenCorrMatrix(cor_df$r, cor_df$P))
+  cor_df$adj.p_.al_FDR <- p.adjust(p = cor_df$p, method = "bonferroni")
+  cor_df <- aftermath(as.data.frame(cor_df), p_cut, p_ind, fdr_cut, fdr_ind)
+  cor_df <- corr_cut(cor_df, cor_cut, cor_ind)
+  return(as.data.frame(cor_df))
+}
+```
+5. *Flatten Matrix* - The function generates the dataframe from the correlation matrix.
+```
+flattenCorrMatrix <- function(cormat, pmat) {
+  ut <- upper.tri(cormat)
+  data.frame(row = rownames(cormat)[row(cormat)[ut]],
+    column = rownames(cormat)[col(cormat)[ut]],
+    cor  =(cormat)[ut],
+    p = pmat[ut]
+  )}
+```
+6. *Correlation coefficient based filtering* - Filters the flattened DataFrame based on the Pearson's correlation coefficient
+```
+corr_cut <- function(temp_df3, cut, cor_index){
+  cut_n <- cut * -1
+  temp_df3_p <- temp_df3[which(temp_df3[,cor_index] > cut),]
+  temp_df3_n <- temp_df3[which(temp_df3[,cor_index] < cut_n),]
+  joined <- as.data.frame(rbind(temp_df3_p, temp_df3_n))
+  return(joined)
 }
 ```
