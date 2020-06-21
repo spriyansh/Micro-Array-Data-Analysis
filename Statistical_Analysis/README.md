@@ -20,3 +20,18 @@
 2. ```BiocManager::install("limma")```
 3. ```install.packages("tidyverse", dependencies = TRUE)```
 4. ```install.packages("Hmisc", dependencies = TRUE)```
+
+* **User-defined functions**
+1. *Making the Metadata for making design Matrix* - Function accepts expression data as a dataframe and makes a metadata file using the column names of the expression data. The function needs 4 parameters i.e. 2-Group definitions and 2-Group indexes. The function only works with two group experiments or two group testings.  
+```
+meta_make <- function(temp_df, ind_set1,set1, ind_set2, set2){
+  s1 <- list(rep(set1,ind_set1))
+  s2 <- list(rep(set2,ind_set2))
+  g <- list_to_df(s1,s2)
+  samp_names <- as.data.frame(colnames(temp_df))
+  colnames(samp_names)<- "sample_id"
+  temp_meta <- cbind(samp_names, g)
+  names(temp_meta)[2]<- "groups"
+  return(temp_meta)
+}
+```
