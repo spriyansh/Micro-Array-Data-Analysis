@@ -54,13 +54,8 @@ meta_make <- function(temp_df, ind_set1,set1, ind_set2, set2){
 3. *Finding based on statistics of the t-test* - Function accepts DataFrame of the t-test results from ```limma```. The index of the columns are also passed along with the cut-off filter i.e. ```0.03``` for ```adj.p-value``` and ```0.01``` for ```p-value```. The upregulated and downregulated genes are filtered with ```LogFC``` with ```<-0.5``` as down-regulated and ```>0.5``` as up-regulated.
 ```
 aftermath <- function(temp_df2, pvalue, p_index, fdr, adj_index){
-  # p-value cut-off
   temp_df2 <- temp_df2[which(temp_df2[,p_index] < as.numeric(pvalue)),]
-  
-  # FDR Cut-off
   temp_df2 <- temp_df2[which(temp_df2[,adj_index] < as.numeric(fdr)),]
-  
-  # Returning the list of 3 DataFrames
   return(temp_df2)
 }
 ```
