@@ -2,7 +2,7 @@
 ---
 <br>
 
-* *Meachnistic analysis involves discovery of meachincal interactions among the genomic elements. For, example if two correlated mRNAs are situated in the close proximity to each other i.e. (<1000 bp), then they can have cis-interactions among them, given they reside on the same chromosome.*
+* *Mechanistic analysis involves discovery of meachincal interactions among the genomic elements. For, example if two correlated mRNAs are situated in the close proximity to each other i.e. (<1000 bp), then they can have cis-interactions among them, given they reside on the same chromosome.*
 
 <br>
 
