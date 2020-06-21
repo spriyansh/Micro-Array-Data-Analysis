@@ -7,7 +7,7 @@
 #### 2. The repository discuss following techniques used for computational analysis of the microarray data -
 - [Data pre-processing](https://github.com/spriyansh/Micro-Array-Data-Analysis/tree/master/Data_Preprocessing)
 - [Statistical Analysis](https://github.com/spriyansh/Micro-Array-Data-Analysis/tree/master/Statistical_Analysis)
-- Mechanistic Analysis
+- [Mechanistic Analysis](https://github.com/spriyansh/Micro-Array-Data-Analysis/tree/master/Mechanistic_Analysis)
 - Gene Set Enrichment Analysis
 - Network Analysis
 - Visualizations
