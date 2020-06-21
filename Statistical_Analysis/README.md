@@ -4,7 +4,7 @@
 
 * **Statistical analysis involves following-**
 1. Finding differentially expressed genes. Use [this](https://raw.githubusercontent.com/spriyansh/Micro-Array-Data-Analysis/master/Statistical_Analysis/t_test.R) script for performing [t-test](https://en.wikipedia.org/wiki/Student%27s_t-test)
-2. Finding the regulation status of the differentially expressed gene. Use [this]() for filtering
+2. Finding the regulation status of the differentially expressed gene. Use [this](https://raw.githubusercontent.com/spriyansh/Micro-Array-Data-Analysis/master/Statistical_Analysis/significant_filter.R) for filtering
 3. Finding the correlated genes
 
 <br>
@@ -49,5 +49,18 @@ meta_make <- function(temp_df, ind_set1,set1, ind_set2, set2){
   temp_meta <- cbind(samp_names, g)
   names(temp_meta)[2]<- "groups"
   return(temp_meta)
+}
+```
+3. *Finding based on statistics of the t-test* - Function accepts DataFrame of the t-test results from ```limma```. The index of the columns are also passed along with the cut-off filter i.e. ```0.03``` for ```adj.p-value``` and ```0.01``` for ```p-value```. The upregulated and downregulated genes are filtered with ```LogFC``` with ```<-0.5``` as down-regulated and ```>0.5``` as up-regulated
+```
+aftermath <- function(temp_df2, pvalue, p_index, fdr, adj_index){
+  # p-value cut-off
+  temp_df2 <- temp_df2[which(temp_df2[,p_index] < as.numeric(pvalue)),]
+  
+  # FDR Cut-off
+  temp_df2 <- temp_df2[which(temp_df2[,adj_index] < as.numeric(fdr)),]
+  
+  # Returning the list of 3 DataFrames
+  return(temp_df2)
 }
 ```
