@@ -15,11 +15,15 @@
 3. [tidyverse](https://www.tidyverse.org/)
 4. [Hmisc](https://cran.r-project.org/web/packages/Hmisc/index.html)
 
+<br>
+
 * **Install in the following order**
 1. ```install.packages("BiocManager", dependencies = TRUE)```
 2. ```BiocManager::install("limma")```
 3. ```install.packages("tidyverse", dependencies = TRUE)```
 4. ```install.packages("Hmisc", dependencies = TRUE)```
+
+<br>
 
 * **User-defined functions**
 1. *Making the Metadata for making design Matrix* - Function accepts expression data as a dataframe and makes a metadata file using the column names of the expression data. The function needs 4 parameters i.e. 2-Group definitions and 2-Group indexes. The function only works with two group experiments or two group testings.  
