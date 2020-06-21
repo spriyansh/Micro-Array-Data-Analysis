@@ -26,7 +26,19 @@
 <br>
 
 * **User-defined functions**
-1. *Making the Metadata for making design Matrix* - Function accepts expression data as a dataframe and makes a metadata file using the column names of the expression data. The function needs 4 parameters i.e. 2-Group definitions and 2-Group indexes. The function only works with two group experiments or two group testings.  
+1. *Conversion of list to DataFrame* - The function accepts two lists and make dataframe out of them. This function is used by the user-fdefined```meta_make()``` function to make metadat for design matrix
+```
+list_to_df <-function(list1, list2){
+  n <- c()
+  for(x in list1){
+    n<-c(n, x)}
+  for(y in list2){
+    n<-c(n, y)}
+  n<- as.data.frame(n)
+  return(n)
+}
+```
+2. *Making the metadata for making design Matrix* - Function accepts expression data as a dataframe and makes a metadata file using the column names of the expression data. The function needs 4 parameters i.e. 2-Group definitions and 2-Group indexes. The function only works with two group experiments or two group testings.  
 ```
 meta_make <- function(temp_df, ind_set1,set1, ind_set2, set2){
   s1 <- list(rep(set1,ind_set1))
