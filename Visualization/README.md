@@ -24,5 +24,8 @@
 <br>
 
 #### 2. Volcano Plot: _A volcano plot is a type of scatterplot that shows statistical significance (P value) versus magnitude of change (fold change). It enables quick visual identification of genes with large fold changes that are also statistically significant [ref](https://training.galaxyproject.org/training-material/topics/transcriptomics/tutorials/rna-seq-viz-with-volcanoplot/tutorial.html)._
+<p align="center"><img src="https://github.com/spriyansh/Micro-Array-Data-Analysis/blob/master/Visualization/plots/Volcano.png"></p>
 
+#### 3. Heatmaps: _Heatmaps are commonly used to visualize RNA-Seq results. They are useful for visualizing the expression of genes across the samples [ref](https://training.galaxyproject.org/training-material/topics/transcriptomics/tutorials/rna-seq-viz-with-volcanoplot/tutorial.html)._
+<p align="center"><img src="https://github.com/spriyansh/Micro-Array-Data-Analysis/blob/master/Visualization/plots/Heatmap.png"></p>
 
