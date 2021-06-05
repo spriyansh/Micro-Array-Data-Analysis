@@ -1,0 +1,101 @@
+################################################################################
+######################### Volcano Plot with ggplot 2 ###########################
+################################################################################
+
+
+################################################################################
+# Author: Priyansh Srivastava ##################################################
+# Contact: spriyansh29@gmail.com ###############################################
+# Dataset: https://zenodo.org/record/2529117/files/limma-voom_luminalpregnant-luminallactate;
+# https://zenodo.org/record/2529117/files/volcano_genes ########################
+################################################################################
+
+
+# Library
+library(ggplot2)
+library(ggrepel)
+library(plotly)
+library(tidyverse)
+options(ggrepel.max.overlaps = Inf)
+
+# Functions
+topGenes <- function(df){
+  up <- df %>% slice_min(P.Value, n = 30) %>% slice_max(logFC, n = 10) 
+  down <- df %>% slice_min(P.Value, n = 30) %>% slice_min(logFC, n = 10) 
+  labels <- rbind(up, down)
+  return(labels)
+}
+
+# Reading Dataset 
+difExpGen <- read.csv("datasets/differentiallyExpressedGenes.csv")
+
+####################
+# Data wrangling ###
+####################
+
+# Adding empty column
+difExpGen$expression <- "Empty"
+
+# if logFc > 0.5 and p-value < 0.05: Over-expressed 
+difExpGen$expression[difExpGen$logFC > 0.5 & difExpGen$P.Value < 0.05] <- "Over-expressed"
+
+# if logFc < 0.5 and p-value < 0.05: Under-expressed 
+difExpGen$expression[difExpGen$logFC < 0.5 & difExpGen$P.Value < 0.05] <- "Under-expressed"
+
+# if p-value > 0.05: not significant
+difExpGen$expression[difExpGen$P.Value > 0.05] <- "Insignificant"
+
+# Reordering the values 
+difExpGen$expression <- factor(difExpGen$expression, 
+                               levels = c("Over-expressed", 
+                                          "Under-expressed",
+                                          "Insignificant"))
+# Designing the plot
+volcanoPlot <- ggplot(data = difExpGen, # Passing the dataset
+                      aes(x = logFC, # Mapping to x-axis
+                          y = -log10(P.Value), # Mapping to y-axis
+                          colour = expression,
+                          label = SYMBOL
+                          ) # Mapping to colour
+) + 
+  # Adding points
+  geom_point(size=2, # Size of points
+             aes(alpha = expression) # Alpha of dots
+  ) +
+
+  # Scaling shape
+  scale_color_manual(values = c("#009E73", "#D55E00", "#56B4E9")) +
+  
+  # Scaling alpha
+  scale_alpha_manual(values = c(0.4,0.4,0.2)) +
+  
+  # Scaling Alpha for legend
+  guides(colour = guide_legend(override.aes = list(alpha = 0.7)))+
+  
+  geom_text_repel(
+    data = topGenes(difExpGen),
+    aes(
+      label = SYMBOL,
+      hjust = 1, vjust =1,
+      x = logFC,
+      y = -log10(P.Value)),
+    inherit.aes = FALSE, size = 10/.pt, min.segment.length = unit(0.0, 'lines'), segment.size = 0.2
+  )+
+  
+  # Adding the basic theme
+  theme_bw() +
+  
+  # Override defaults
+  theme(
+    panel.grid.major = element_line(size = 0.05, 
+                                    linetype = 'dotted', colour = "#000000"), 
+    panel.grid.minor = element_line(size = 0.05, 
+                                    linetype = 'dashed', colour = "#000000"),
+    legend.position = "bottom",
+    legend.text = element_text(size = 12),
+    legend.title = element_blank(),
+    legend.key.size = unit(1, "cm"),
+    panel.border=element_blank())
+
+# Plotting the volcano
+volcanoPlot
