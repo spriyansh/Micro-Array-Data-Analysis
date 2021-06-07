@@ -31,3 +31,6 @@
 
 #### 4. Boxplots: _A boxplot is a very useful graph that shows the shape of the distribution of the data as well as its central value (median), and variability (inter-quartile range, and usually the minimum and maximum values)[ref](http://nebc.nerc.ac.uk/nebc_website_frozen/nebc.nerc.ac.uk//tools/bioinformatics-docs/other-bioinf/microarray-quality.html#:~:text=package%20from%20Bioconductor.-,Boxplots,the%20minimum%20and%20maximum%20values)._
 <p align="center"><img src="https://github.com/spriyansh/Micro-Array-Data-Analysis/blob/master/Visualization/plots/boxplot.png"></p>
+
+#### 5. MA-plot: _An MA plot is an application of a Bland–Altman plot for visual representation of genomic data. The plot visualizes the differences between measurements taken in two samples, by transforming the data onto M (log ratio) and A (mean average) scales, then plotting these values.[ref](https://en.wikipedia.org/wiki/MA_plot#:~:text=An%20MA%20plot%20is%20an,scales%2C%20then%20plotting%20these%20values.)._
+<p align="center"><img src="https://github.com/spriyansh/Micro-Array-Data-Analysis/blob/master/Visualization/plots/MA.png"></p>
